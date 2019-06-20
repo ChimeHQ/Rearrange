@@ -28,6 +28,12 @@ public struct RangeMutation {
         }
     }
 
+    public init(stringContents string: String) {
+        let length = string.utf16.count
+
+        self.init(range: NSRange.zero, delta: length, limit: 0)
+    }
+
     public var limit: Int {
         return presetLimit ?? range.max
     }
