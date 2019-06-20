@@ -1,0 +1,24 @@
+//
+//  Rearrange.xcconfig
+//  Rearrange
+//
+//  Created by Matt Massicotte on 2019-06-20.
+//  Copyright © 2019 Chime Systems Inc. All rights reserved.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+#include "xcconfigs/UniversalFramework_Framework.xcconfig"
+
+PRODUCT_NAME = Rearrange
+PRODUCT_BUNDLE_IDENTIFIER = com.chimehq.Rearrange
+PRODUCT_MODULE_NAME = Rearrange
+CURRENT_PROJECT_VERSION = 1
+
+INFOPLIST_FILE = Rearrange/Info.plist
+
+MACOSX_DEPLOYMENT_TARGET = 10.10
+IPHONEOS_DEPLOYMENT_TARGET = 8.0
+TVOS_DEPLOYMENT_TARGET = 10.0
+WATCHOS_DEPLOYMENT_TARGET = 3.0
