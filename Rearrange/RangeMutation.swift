@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// RangeMutation encapsulates a single change in a larger NSRange, like a text representation.
 public struct RangeMutation {
     public let range: NSRange
     public let delta: Int

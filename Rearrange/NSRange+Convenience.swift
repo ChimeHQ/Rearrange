@@ -13,7 +13,7 @@ extension NSRange {
 }
 
 extension NSRange {
-    public var max : Int {
+    public var max: Int {
         return NSMaxRange(self)
     }
 }
