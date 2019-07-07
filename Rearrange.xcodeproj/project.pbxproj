@@ -7,13 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C91BE30822D20671009C4F37 /* IndexSet+NSRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91BE30722D20671009C4F37 /* IndexSet+NSRange.swift */; };
 		C9ACB84022BC081E00472232 /* Rearrange.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9ACB83622BC081E00472232 /* Rearrange.framework */; };
 		C9ACB84722BC081E00472232 /* Rearrange.h in Headers */ = {isa = PBXBuildFile; fileRef = C9ACB83922BC081E00472232 /* Rearrange.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C9ACB85422BC08B000472232 /* NSRange+Shift.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ACB85022BC08B000472232 /* NSRange+Shift.swift */; };
 		C9ACB85522BC08B000472232 /* RangeMutation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ACB85122BC08B000472232 /* RangeMutation.swift */; };
 		C9ACB85622BC08B000472232 /* NSRange+ApplyMutation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ACB85222BC08B000472232 /* NSRange+ApplyMutation.swift */; };
 		C9ACB85722BC08B000472232 /* NSRange+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ACB85322BC08B000472232 /* NSRange+Convenience.swift */; };
-		C9ACB85A22BC08C500472232 /* NSRangeTApplyMutationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ACB85822BC08C500472232 /* NSRangeTApplyMutationTests.swift */; };
+		C9ACB85A22BC08C500472232 /* NSRangeApplyMutationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ACB85822BC08C500472232 /* NSRangeApplyMutationTests.swift */; };
 		C9ACB85B22BC08C500472232 /* RangeMutationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ACB85922BC08C500472232 /* RangeMutationTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C91BE30722D20671009C4F37 /* IndexSet+NSRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IndexSet+NSRange.swift"; sourceTree = "<group>"; };
 		C9ACB83622BC081E00472232 /* Rearrange.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Rearrange.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9ACB83922BC081E00472232 /* Rearrange.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Rearrange.h; sourceTree = "<group>"; };
 		C9ACB83A22BC081E00472232 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -37,7 +39,7 @@
 		C9ACB85122BC08B000472232 /* RangeMutation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RangeMutation.swift; sourceTree = "<group>"; };
 		C9ACB85222BC08B000472232 /* NSRange+ApplyMutation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSRange+ApplyMutation.swift"; sourceTree = "<group>"; };
 		C9ACB85322BC08B000472232 /* NSRange+Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSRange+Convenience.swift"; sourceTree = "<group>"; };
-		C9ACB85822BC08C500472232 /* NSRangeTApplyMutationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSRangeTApplyMutationTests.swift; sourceTree = "<group>"; };
+		C9ACB85822BC08C500472232 /* NSRangeApplyMutationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSRangeApplyMutationTests.swift; sourceTree = "<group>"; };
 		C9ACB85922BC08C500472232 /* RangeMutationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RangeMutationTests.swift; sourceTree = "<group>"; };
 		C9ACB85C22BC092700472232 /* Rearrange.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Rearrange.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -85,6 +87,7 @@
 				C9ACB85222BC08B000472232 /* NSRange+ApplyMutation.swift */,
 				C9ACB85322BC08B000472232 /* NSRange+Convenience.swift */,
 				C9ACB85022BC08B000472232 /* NSRange+Shift.swift */,
+				C91BE30722D20671009C4F37 /* IndexSet+NSRange.swift */,
 				C9ACB85122BC08B000472232 /* RangeMutation.swift */,
 				C9ACB83922BC081E00472232 /* Rearrange.h */,
 				C9ACB83A22BC081E00472232 /* Info.plist */,
@@ -96,7 +99,7 @@
 		C9ACB84322BC081E00472232 /* RearrangeTests */ = {
 			isa = PBXGroup;
 			children = (
-				C9ACB85822BC08C500472232 /* NSRangeTApplyMutationTests.swift */,
+				C9ACB85822BC08C500472232 /* NSRangeApplyMutationTests.swift */,
 				C9ACB85922BC08C500472232 /* RangeMutationTests.swift */,
 				C9ACB84622BC081E00472232 /* Info.plist */,
 			);
@@ -215,6 +218,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9ACB85522BC08B000472232 /* RangeMutation.swift in Sources */,
+				C91BE30822D20671009C4F37 /* IndexSet+NSRange.swift in Sources */,
 				C9ACB85422BC08B000472232 /* NSRange+Shift.swift in Sources */,
 				C9ACB85722BC08B000472232 /* NSRange+Convenience.swift in Sources */,
 				C9ACB85622BC08B000472232 /* NSRange+ApplyMutation.swift in Sources */,
@@ -226,7 +230,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9ACB85B22BC08C500472232 /* RangeMutationTests.swift in Sources */,
-				C9ACB85A22BC08C500472232 /* NSRangeTApplyMutationTests.swift in Sources */,
+				C9ACB85A22BC08C500472232 /* NSRangeApplyMutationTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

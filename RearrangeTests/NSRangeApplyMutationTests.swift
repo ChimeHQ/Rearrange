@@ -1,5 +1,5 @@
 //
-//  NSRangeTests.swift
+//  NSRangeApplyMutationTests.swift
 //  TextProcessingTests
 //
 //  Created by Matt Massicotte on 12/12/17.
@@ -9,7 +9,7 @@
 import XCTest
 @testable import Rearrange
 
-class NSRangeTApplyMutationTests: XCTestCase {
+class NSRangeApplyMutationTests: XCTestCase {
     func testApplyTextChangeRightAtLimit() {
         let range = NSMakeRange(10, 2)
 
