@@ -25,7 +25,7 @@ github "ChimeHQ/Rearrange"
 
 **RangeMutation**
 
-This is a struct that encapsulates a single change to an NSRange. It's useful for serializing, queuing, or otherise storing changes and applying them.
+This is a struct that encapsulates a single change to an NSRange. It's useful for serializing, queuing, or otherwise storing changes and applying them.
 
 You can also use this class to tranform individual points or other NSRanges. This is handy for updating a set of stored NSRanges as text is changed. This might seem easy, but there are a large number of edge cases that RangeMutation handles, including mutations that invalidate (for example completely delete) a range. 
 
