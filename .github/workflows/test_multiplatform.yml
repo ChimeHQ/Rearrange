@@ -13,4 +13,6 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Use platform ${{ matrix.destination }}
-      run: xcodebuild test -scheme Rearrange -destination "${{ matrix.destination }}"
+      run: |
+        git submodule update --init
+        xcodebuild test -scheme Rearrange -destination "${{ matrix.destination }}"
