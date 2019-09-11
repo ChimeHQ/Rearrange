@@ -1,3 +1,4 @@
+![](https://github.com/ChimeHQ/Rearrange/workflows/CI/badge.svg)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg)](https://github.com/Carthage/Carthage)
 ![](https://img.shields.io/badge/Swift-5.0-orange.svg)
 
