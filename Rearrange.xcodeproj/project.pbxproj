@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C91BE30822D20671009C4F37 /* IndexSet+NSRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91BE30722D20671009C4F37 /* IndexSet+NSRange.swift */; };
+		C94941F12329601300BCFC88 /* RearrangeTests.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = C94941F02329601300BCFC88 /* RearrangeTests.xcconfig */; };
 		C9ACB84022BC081E00472232 /* Rearrange.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9ACB83622BC081E00472232 /* Rearrange.framework */; };
 		C9ACB84722BC081E00472232 /* Rearrange.h in Headers */ = {isa = PBXBuildFile; fileRef = C9ACB83922BC081E00472232 /* Rearrange.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C9ACB85422BC08B000472232 /* NSRange+Shift.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ACB85022BC08B000472232 /* NSRange+Shift.swift */; };
@@ -30,6 +31,7 @@
 
 /* Begin PBXFileReference section */
 		C91BE30722D20671009C4F37 /* IndexSet+NSRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IndexSet+NSRange.swift"; sourceTree = "<group>"; };
+		C94941F02329601300BCFC88 /* RearrangeTests.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = RearrangeTests.xcconfig; sourceTree = "<group>"; };
 		C9ACB83622BC081E00472232 /* Rearrange.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Rearrange.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9ACB83922BC081E00472232 /* Rearrange.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Rearrange.h; sourceTree = "<group>"; };
 		C9ACB83A22BC081E00472232 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 		C9ACB84322BC081E00472232 /* RearrangeTests */ = {
 			isa = PBXGroup;
 			children = (
+				C94941F02329601300BCFC88 /* RearrangeTests.xcconfig */,
 				C9ACB85822BC08C500472232 /* NSRangeApplyMutationTests.swift */,
 				C9ACB85922BC08C500472232 /* RangeMutationTests.swift */,
 				C9ACB84622BC081E00472232 /* Info.plist */,
@@ -207,6 +210,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C94941F12329601300BCFC88 /* RearrangeTests.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -403,19 +407,17 @@
 		};
 		C9ACB84E22BC081E00472232 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C94941F02329601300BCFC88 /* RearrangeTests.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = RearrangeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.chimehq.RearrangeTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
@@ -423,19 +425,17 @@
 		};
 		C9ACB84F22BC081E00472232 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C94941F02329601300BCFC88 /* RearrangeTests.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = RearrangeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.chimehq.RearrangeTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
