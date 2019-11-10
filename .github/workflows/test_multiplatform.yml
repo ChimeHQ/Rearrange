@@ -1,6 +1,12 @@
 name: CI
 
-on: [push]
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - '**'
 
 jobs:
   test:
@@ -15,4 +21,4 @@ jobs:
     - name: Use platform ${{ matrix.destination }}
       run: |
         git submodule update --init
-        xcodebuild test -scheme Rearrange -destination "${{ matrix.destination }}"
+        set -o pipefail && xcodebuild test -scheme Rearrange -destination "${{ matrix.destination }}" | xcpretty
