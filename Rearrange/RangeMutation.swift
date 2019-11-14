@@ -24,9 +24,7 @@ public struct RangeMutation {
             precondition(range.max <= l, "range must not exceed limit")
         }
 
-        if delta < 0 {
-            precondition(range.length >= -1 * delta, "negative delta must not exceed total range length")
-        }
+        precondition(range.length + delta >= 0, "delta must not be cause range length to go negative")
     }
 
     public init(stringContents string: String) {

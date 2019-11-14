@@ -10,6 +10,7 @@
 		C91BE30822D20671009C4F37 /* IndexSet+NSRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91BE30722D20671009C4F37 /* IndexSet+NSRange.swift */; };
 		C947EAF323779F0700EBFF93 /* NSRangeShiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C947EAF223779F0700EBFF93 /* NSRangeShiftTests.swift */; };
 		C94941F12329601300BCFC88 /* RearrangeTests.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = C94941F02329601300BCFC88 /* RearrangeTests.xcconfig */; };
+		C9793C55237CF53300D51E38 /* IndexSetExtenstionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9793C54237CF53300D51E38 /* IndexSetExtenstionTests.swift */; };
 		C9ACB84022BC081E00472232 /* Rearrange.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9ACB83622BC081E00472232 /* Rearrange.framework */; };
 		C9ACB84722BC081E00472232 /* Rearrange.h in Headers */ = {isa = PBXBuildFile; fileRef = C9ACB83922BC081E00472232 /* Rearrange.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C9ACB85422BC08B000472232 /* NSRange+Shift.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ACB85022BC08B000472232 /* NSRange+Shift.swift */; };
@@ -34,6 +35,7 @@
 		C91BE30722D20671009C4F37 /* IndexSet+NSRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IndexSet+NSRange.swift"; sourceTree = "<group>"; };
 		C947EAF223779F0700EBFF93 /* NSRangeShiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSRangeShiftTests.swift; sourceTree = "<group>"; };
 		C94941F02329601300BCFC88 /* RearrangeTests.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = RearrangeTests.xcconfig; sourceTree = "<group>"; };
+		C9793C54237CF53300D51E38 /* IndexSetExtenstionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexSetExtenstionTests.swift; sourceTree = "<group>"; };
 		C9ACB83622BC081E00472232 /* Rearrange.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Rearrange.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9ACB83922BC081E00472232 /* Rearrange.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Rearrange.h; sourceTree = "<group>"; };
 		C9ACB83A22BC081E00472232 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 				C9ACB85922BC08C500472232 /* RangeMutationTests.swift */,
 				C9ACB84622BC081E00472232 /* Info.plist */,
 				C947EAF223779F0700EBFF93 /* NSRangeShiftTests.swift */,
+				C9793C54237CF53300D51E38 /* IndexSetExtenstionTests.swift */,
 			);
 			path = RearrangeTests;
 			sourceTree = "<group>";
@@ -236,6 +239,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9793C55237CF53300D51E38 /* IndexSetExtenstionTests.swift in Sources */,
 				C947EAF323779F0700EBFF93 /* NSRangeShiftTests.swift in Sources */,
 				C9ACB85B22BC08C500472232 /* RangeMutationTests.swift in Sources */,
 				C9ACB85A22BC08C500472232 /* NSRangeApplyMutationTests.swift in Sources */,

@@ -9,6 +9,10 @@
 import Foundation
 
 public extension IndexSet {
+    init(integersIn range: NSRange) {
+        self.init(integersIn: Range<IndexSet.Element>(range)!)
+    }
+
     mutating func insert(range: NSRange) {
         insert(integersIn: Range<IndexSet.Element>(range)!)
     }
@@ -19,5 +23,17 @@ public extension IndexSet {
 
     var nsRangeView: [NSRange] {
         return rangeView.map { NSRange($0) }
+    }
+
+    func contains(integersIn range: NSRange) -> Bool {
+        return contains(integersIn: Range<IndexSet.Element>(range)!)
+    }
+
+    var limitSpanningRange: NSRange? {
+        guard let start = self.min(), let end = self.max() else {
+            return nil
+        }
+
+        return NSRange(start...end)
     }
 }
