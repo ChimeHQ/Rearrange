@@ -35,6 +35,12 @@ class RangeMutationTests: XCTestCase {
         XCTAssertEqual(change.transform(location: 10), 10)
     }
 
+    func testMutationStartingAtLocationWithNoDelta() {
+        let change = RangeMutation(range: NSMakeRange(10, 1), delta: 0, limit: 15)
+
+        XCTAssertEqual(change.transform(location: 10), 10)
+    }
+
     func testMutationEndingAtLocation() {
         let change = RangeMutation(range: NSMakeRange(9, 1), delta: 1, limit: 15)
 
@@ -78,6 +84,12 @@ class RangeMutationTests: XCTestCase {
         XCTAssertEqual(change.transform(range: NSMakeRange(0, 5)), NSMakeRange(0, 5))
     }
 
+    func testMutationRemovalOfEndingOfRange() {
+        let change = RangeMutation(range: NSMakeRange(4, 1), delta: -1, limit: 10)
+
+        XCTAssertEqual(change.transform(range: NSMakeRange(0, 5)), NSMakeRange(0, 4))
+    }
+
     func testMutationAdditionAtEndingOfRange() {
         let change = RangeMutation(range: NSMakeRange(5, 0), delta: 1, limit: 11)
 
@@ -95,10 +107,10 @@ class RangeMutationTests: XCTestCase {
         let change = RangeMutation(range: NSMakeRange(0, 0), delta: 5, limit: 10)
 
         XCTAssertEqual(change.transform(range: NSMakeRange(0, 5)), NSMakeRange(5, 5))
-        XCTAssertEqual(change.transform(range: NSMakeRange(0, 0)), NSMakeRange(5, 0))
+        XCTAssertEqual(change.transform(range: NSMakeRange(0, 0)), NSMakeRange(0, 0))
     }
 
-    func testMutationAtLimit() {
+    func testMutationAtBeginning() {
         let change = RangeMutation(range: NSMakeRange(5, 1), delta: -1, limit: 11)
 
         XCTAssertEqual(change.transform(range: NSMakeRange(10, 2)), NSMakeRange(9, 2))
@@ -125,8 +137,14 @@ class RangeMutationTests: XCTestCase {
     }
 
     func testMutationRemovesExactRange() {
-        let change = RangeMutation(range: NSMakeRange(5, 5), delta: -5, limit: 10)
+        let change = RangeMutation(range: NSRange(5..<10), delta: -5, limit: 10)
 
-        XCTAssertEqual(change.transform(range: NSMakeRange(5, 5)), NSMakeRange(5, 0))
+        XCTAssertEqual(change.transform(range: NSRange(5..<10)), NSRange(5..<5))
+    }
+
+    func testMutationReplaceExactRange() {
+        let change = RangeMutation(range: NSRange(5..<10), delta: 0, limit: 10)
+
+        XCTAssertEqual(change.transform(range: NSRange(5..<10)), NSRange(5..<5))
     }
 }

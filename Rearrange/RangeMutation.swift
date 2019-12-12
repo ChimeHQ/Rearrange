@@ -79,6 +79,12 @@ extension RangeMutation {
             return r
         }
 
+        // Here's another special case, where both ranges are identical. This
+        // means everything has changed, but the range location can remain.
+        if range == r {
+            return NSRange(location: range.location, length: 0)
+        }
+
         guard let start = transform(location: r.location) else {
             return nil
         }
