@@ -10,6 +10,10 @@ import Foundation
 
 extension NSRange {
     public func apply(_ change: RangeMutation) -> NSRange? {
+        if change.presetLimit != nil {
+            precondition(change.range.max <= change.limit)
+        }
+
         // a trivial case
         if change.delta == 0 {
             return self
@@ -26,7 +30,9 @@ extension NSRange {
                 fatalError("change makes range invalid")
             }
 
-            precondition(new.max <= change.limit)
+            if change.presetLimit != nil {
+                precondition(new.max <= change.postApplyLimit)
+            }
 
             return new
         }

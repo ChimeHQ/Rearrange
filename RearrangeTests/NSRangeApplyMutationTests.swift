@@ -13,7 +13,7 @@ class NSRangeApplyMutationTests: XCTestCase {
     func testApplyTextChangeRightAtLimit() {
         let range = NSMakeRange(10, 2)
 
-        let change = RangeMutation(range: NSMakeRange(5, 1), delta: -1, limit: 11)
+        let change = RangeMutation(range: NSMakeRange(5, 1), delta: -1, limit: 12)
 
         XCTAssertEqual(range.apply(change), NSMakeRange(9, 2))
     }
@@ -120,5 +120,13 @@ class NSRangeApplyMutationTests: XCTestCase {
         let change = RangeMutation(range: NSMakeRange(5, 0), delta: 1, limit: 11)
 
         XCTAssertEqual(range.apply(change), NSMakeRange(6, 0))
+    }
+
+    func testApplyTextChangePushingRangePastLimit() {
+        let range = NSRange(5..<10)
+
+        let change = RangeMutation(range: NSRange(1..<1), delta: 1, limit: 10)
+
+        XCTAssertEqual(range.apply(change), NSRange(6..<11))
     }
 }
