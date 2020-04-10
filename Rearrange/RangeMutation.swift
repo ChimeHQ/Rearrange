@@ -44,6 +44,10 @@ public struct RangeMutation {
 
 extension RangeMutation {
     public func transform(location: Int) -> Int? {
+        if let l = presetLimit {
+            precondition(location <= l)
+        }
+
         if range.location > location {
             return location
         }
@@ -54,19 +58,19 @@ extension RangeMutation {
             return location
         }
 
-        if range.max <= location {
-            let result = location + delta
-
-            precondition(result >= 0)
-
-            if let l = presetLimit {
-                precondition(result <= l)
-            }
-
-            return result
+        if range.max > location {
+            return nil
         }
 
-        return nil
+        let result = location + delta
+
+        precondition(result >= 0)
+
+        if presetLimit != nil {
+            precondition(result <= postApplyLimit)
+        }
+
+        return result
     }
 }
 

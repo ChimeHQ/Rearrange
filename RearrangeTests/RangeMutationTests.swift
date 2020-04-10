@@ -23,6 +23,12 @@ class RangeMutationTests: XCTestCase {
         XCTAssertEqual(change.transform(location: 14), 15)
     }
 
+    func testMutationAtLimitLocation() {
+        let change = RangeMutation(range: NSRange(5..<5), delta: 1, limit: 5)
+
+        XCTAssertEqual(change.transform(location: 5), 6)
+    }
+
     func testMutationAfterLocation() {
         let change = RangeMutation(range: NSMakeRange(11, 1), delta: 1, limit: 15)
 
@@ -111,7 +117,7 @@ class RangeMutationTests: XCTestCase {
     }
 
     func testMutationAtBeginning() {
-        let change = RangeMutation(range: NSMakeRange(5, 1), delta: -1, limit: 11)
+        let change = RangeMutation(range: NSMakeRange(5, 1), delta: -1, limit: 12)
 
         XCTAssertEqual(change.transform(range: NSMakeRange(10, 2)), NSMakeRange(9, 2))
     }
@@ -123,7 +129,7 @@ class RangeMutationTests: XCTestCase {
     }
 
     func testMutationDecreasesLengthOfRange() {
-        let change = RangeMutation(range: NSMakeRange(5, 1), delta: -1, limit: 9)
+        let change = RangeMutation(range: NSMakeRange(5, 1), delta: -1, limit: 10)
 
         XCTAssertEqual(change.transform(range: NSMakeRange(0, 10)), NSMakeRange(0, 9))
     }
