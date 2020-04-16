@@ -29,6 +29,9 @@ public extension IndexSet {
         return contains(integersIn: Range<IndexSet.Element>(range)!)
     }
 
+    /// Returns a range starting at the minimum of the test and extending to the maximum
+    ///
+    /// This value will be nil if either min() or max() are nil
     var limitSpanningRange: NSRange? {
         guard let start = self.min(), let end = self.max() else {
             return nil

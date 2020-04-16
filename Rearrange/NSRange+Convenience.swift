@@ -17,3 +17,12 @@ extension NSRange {
         return NSMaxRange(self)
     }
 }
+
+extension NSRange: Sequence {
+    public typealias Element = Range<Int>.Element
+    public typealias Iterator = Range<Int>.Iterator
+
+    public func makeIterator() -> Range<Int>.Iterator {
+        return (location..<NSMaxRange(self)).makeIterator()
+    }
+}

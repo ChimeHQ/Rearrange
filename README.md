@@ -12,7 +12,7 @@ Swift Package Manager:
 
 ```swift
 dependencies: [
-        .package(url: "https://github.com/ChimeHQ/Rearrange.git")
+    .package(url: "https://github.com/ChimeHQ/Rearrange.git")
 ]
 ```
 
@@ -54,6 +54,8 @@ func apply(_ change: RangeMutation) -> NSRange?
 mutating func insert(range: NSRange)
 mutating func insert(ranges: [NSRange])
 var nsRangeView: [NSRange]
+func contains(integersIn range: NSRange) -> Bool
+var limitSpanningRange: NSRange?
 ```
 
 ### Suggestions or Feedback

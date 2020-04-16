@@ -19,6 +19,7 @@
 		C9ACB85722BC08B000472232 /* NSRange+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ACB85322BC08B000472232 /* NSRange+Convenience.swift */; };
 		C9ACB85A22BC08C500472232 /* NSRangeApplyMutationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ACB85822BC08C500472232 /* NSRangeApplyMutationTests.swift */; };
 		C9ACB85B22BC08C500472232 /* RangeMutationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ACB85922BC08C500472232 /* RangeMutationTests.swift */; };
+		C9C356882448A394004F87FE /* NSRangeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C356872448A394004F87FE /* NSRangeTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		C9ACB85822BC08C500472232 /* NSRangeApplyMutationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSRangeApplyMutationTests.swift; sourceTree = "<group>"; };
 		C9ACB85922BC08C500472232 /* RangeMutationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RangeMutationTests.swift; sourceTree = "<group>"; };
 		C9ACB85C22BC092700472232 /* Rearrange.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Rearrange.xcconfig; sourceTree = "<group>"; };
+		C9C356872448A394004F87FE /* NSRangeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSRangeTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 				C9ACB84622BC081E00472232 /* Info.plist */,
 				C947EAF223779F0700EBFF93 /* NSRangeShiftTests.swift */,
 				C9793C54237CF53300D51E38 /* IndexSetExtenstionTests.swift */,
+				C9C356872448A394004F87FE /* NSRangeTests.swift */,
 			);
 			path = RearrangeTests;
 			sourceTree = "<group>";
@@ -240,6 +243,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9793C55237CF53300D51E38 /* IndexSetExtenstionTests.swift in Sources */,
+				C9C356882448A394004F87FE /* NSRangeTests.swift in Sources */,
 				C947EAF323779F0700EBFF93 /* NSRangeShiftTests.swift in Sources */,
 				C9ACB85B22BC08C500472232 /* RangeMutationTests.swift in Sources */,
 				C9ACB85A22BC08C500472232 /* NSRangeApplyMutationTests.swift in Sources */,
