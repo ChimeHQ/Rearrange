@@ -37,6 +37,7 @@ public struct RangeMutation {
         return presetLimit ?? range.max
     }
 
+    /// The range limit, with the delta applied
     public var postApplyLimit: Int {
         return limit + delta
     }
