@@ -1,10 +1,9 @@
 [![Github CI](https://github.com/ChimeHQ/Rearrange/workflows/CI/badge.svg)](https://github.com/ChimeHQ/Rearrange/actions)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg)](https://github.com/Carthage/Carthage)
-![](https://img.shields.io/badge/Swift-5.0-orange.svg)
 
 # Rearrange
 
-Rearrange is a collection of utilities for making it easier to work with NSRange. It's particularly handy when used with the Cocoa text system.
+Rearrange is a collection of utilities for making it easier to work with `NSRange`. It's particularly handy when used with the Cocoa text system.
 
 ## Integration
 
@@ -26,9 +25,9 @@ github "ChimeHQ/Rearrange"
 
 **RangeMutation**
 
-This is a struct that encapsulates a single change to an NSRange. It's useful for serializing, queuing, or otherwise storing changes and applying them.
+This is a struct that encapsulates a single change to an `NSRange`. It's useful for serializing, queuing, or otherwise storing changes and applying them.
 
-You can also use this class to tranform individual points or other NSRanges. This is handy for updating a set of stored NSRanges as text is changed. This might seem easy, but there are a large number of edge cases that RangeMutation handles, including mutations that invalidate (for example completely delete) a range. 
+You can also use this class to tranform individual points or other `NSRange`s. This is handy for updating a set of stored `NSRange`s as text is changed. This might seem easy, but there are a large number of edge cases that `RangeMutation` handles, including mutations that invalidate (for example completely delete) a range. 
 
 ## Extensions
 
