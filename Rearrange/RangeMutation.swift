@@ -24,7 +24,7 @@ public struct RangeMutation {
             precondition(range.max <= l, "range must not exceed limit")
         }
 
-        precondition(range.length + delta >= 0, "delta must not be cause range length to go negative")
+        precondition(range.length + delta >= 0, "delta must not cause range length to go negative")
     }
 
     public init(stringContents string: String) {
@@ -40,6 +40,33 @@ public struct RangeMutation {
     /// The range limit, with the delta applied
     public var postApplyLimit: Int {
         return limit + delta
+    }
+
+    /// Returns true if the mutating range overlaps the argument
+    public func overlaps(_ r: NSRange) -> Bool {
+        if range.location >= r.max {
+            return false
+        }
+
+        if range.max <= r.location {
+            return false
+        }
+
+        return true
+    }
+
+    /// Returns true if the mutation may alter the argument,
+    /// even if applying the mutation could result in it being unchanged
+    public func affects(_ r: NSRange) -> Bool {
+        if r == .zero {
+            return false
+        }
+
+        if overlaps(r) {
+            return true
+        }
+
+        return range.max < r.max
     }
 }
 

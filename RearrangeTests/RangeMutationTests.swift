@@ -76,81 +76,139 @@ class RangeMutationTests: XCTestCase {
 
         XCTAssertEqual(change.transform(location: 10), 15)
     }
+}
 
+extension RangeMutationTests {
     // MARK: range transformations
-    func testMutationAfterRange() {
-        let change = RangeMutation(range: NSMakeRange(10, 1), delta: -1, limit: 11)
 
-        XCTAssertEqual(change.transform(range: NSMakeRange(0, 5)), NSMakeRange(0, 5))
+    func testMutationAfterRange() {
+        let change = RangeMutation(range: NSRange(10..<11), delta: -1, limit: 11)
+        let range = NSRange(0..<5)
+
+        XCTAssertFalse(change.affects(range))
+        XCTAssertFalse(change.overlaps(range))
+        XCTAssertEqual(change.transform(range: range), range)
     }
 
     func testMutationRemovalAtEndingOfRange() {
-        let change = RangeMutation(range: NSMakeRange(5, 1), delta: -1, limit: 11)
+        let change = RangeMutation(range: NSRange(5..<6), delta: -1, limit: 11)
+        let range = NSRange(0..<5)
 
-        XCTAssertEqual(change.transform(range: NSMakeRange(0, 5)), NSMakeRange(0, 5))
+        XCTAssertFalse(change.affects(range))
+        XCTAssertFalse(change.overlaps(range))
+        XCTAssertEqual(change.transform(range: range), range)
     }
 
     func testMutationRemovalOfEndingOfRange() {
-        let change = RangeMutation(range: NSMakeRange(4, 1), delta: -1, limit: 10)
+        let change = RangeMutation(range: NSRange(4..<5), delta: -1, limit: 10)
+        let range = NSRange(0..<5)
 
-        XCTAssertEqual(change.transform(range: NSMakeRange(0, 5)), NSMakeRange(0, 4))
+        XCTAssertTrue(change.affects(range))
+        XCTAssertTrue(change.overlaps(range))
+        XCTAssertEqual(change.transform(range: range), NSRange(0..<4))
     }
 
     func testMutationAdditionAtEndingOfRange() {
-        let change = RangeMutation(range: NSMakeRange(5, 0), delta: 1, limit: 11)
+        let change = RangeMutation(range: NSRange(5..<5), delta: 1, limit: 11)
+        let range = NSRange(0..<5)
 
-        XCTAssertEqual(change.transform(range: NSMakeRange(0, 5)), NSMakeRange(0, 5))
+        XCTAssertFalse(change.affects(range))
+        XCTAssertFalse(change.overlaps(range))
+        XCTAssertEqual(change.transform(range: range), range)
     }
 
     func testMutationAtBeginningRange() {
-        let change = RangeMutation(range: NSMakeRange(1, 5), delta: -5, limit: 10)
+        let change = RangeMutation(range: NSRange(1..<6), delta: -5, limit: 10)
+        let rangeA = NSRange(0..<1)
 
-        XCTAssertEqual(change.transform(range: NSMakeRange(0, 1)), NSMakeRange(0, 1))
-        XCTAssertEqual(change.transform(range: NSMakeRange(1, 0)), NSMakeRange(1, 0))
+        XCTAssertFalse(change.affects(rangeA))
+        XCTAssertFalse(change.overlaps(rangeA))
+        XCTAssertEqual(change.transform(range: rangeA), rangeA)
+
+        let rangeB = NSRange(1..<1)
+
+        XCTAssertFalse(change.affects(rangeB))
+        XCTAssertFalse(change.overlaps(rangeB))
+        XCTAssertEqual(change.transform(range: rangeB), rangeB)
     }
 
     func testMutationAtZeroRange() {
-        let change = RangeMutation(range: NSMakeRange(0, 0), delta: 5, limit: 10)
+        let change = RangeMutation(range: .zero, delta: 5, limit: 10)
+        let range = NSRange(0..<5)
 
-        XCTAssertEqual(change.transform(range: NSMakeRange(0, 5)), NSMakeRange(5, 5))
-        XCTAssertEqual(change.transform(range: NSMakeRange(0, 0)), NSMakeRange(0, 0))
+        XCTAssertTrue(change.affects(range))
+        XCTAssertFalse(change.overlaps(range))
+        XCTAssertEqual(change.transform(range: range), NSRange(5..<10))
+
+        XCTAssertFalse(change.affects(.zero))
+        XCTAssertFalse(change.overlaps(.zero))
+        XCTAssertEqual(change.transform(range: .zero), .zero)
     }
 
     func testMutationAtBeginning() {
-        let change = RangeMutation(range: NSMakeRange(5, 1), delta: -1, limit: 12)
+        let change = RangeMutation(range: NSRange(5..<6), delta: -1, limit: 12)
+        let range = NSRange(10..<12)
 
-        XCTAssertEqual(change.transform(range: NSMakeRange(10, 2)), NSMakeRange(9, 2))
+        XCTAssertTrue(change.affects(range))
+        XCTAssertFalse(change.overlaps(range))
+        XCTAssertEqual(change.transform(range: range), NSRange(9..<11))
     }
 
     func testMutationIncreasesLengthOfRange() {
-        let change = RangeMutation(range: NSMakeRange(5, 0), delta: 1, limit: 11)
+        let change = RangeMutation(range: NSRange(5..<5), delta: 1, limit: 11)
+        let range = NSRange(0..<10)
 
-        XCTAssertEqual(change.transform(range: NSMakeRange(0, 10)), NSMakeRange(0, 11))
+        XCTAssertTrue(change.affects(range))
+        XCTAssertTrue(change.overlaps(range))
+        XCTAssertEqual(change.transform(range: range), NSRange(0..<11))
     }
 
     func testMutationDecreasesLengthOfRange() {
-        let change = RangeMutation(range: NSMakeRange(5, 1), delta: -1, limit: 10)
+        let change = RangeMutation(range: NSRange(5..<6), delta: -1, limit: 10)
+        let range = NSRange(0..<10)
 
-        XCTAssertEqual(change.transform(range: NSMakeRange(0, 10)), NSMakeRange(0, 9))
+        XCTAssertTrue(change.affects(range))
+        XCTAssertTrue(change.overlaps(range))
+        XCTAssertEqual(change.transform(range: range), NSRange(0..<9))
     }
 
     func testMutationRemovesEntireRange() {
-        let change = RangeMutation(range: NSMakeRange(0, 5), delta: -5, limit: 10)
+        let change = RangeMutation(range: NSRange(0..<5), delta: -5, limit: 10)
 
-        XCTAssertNil(change.transform(range: NSMakeRange(1, 2)))
-        XCTAssertNil(change.transform(range: NSMakeRange(1, 4)))
-        XCTAssertNil(change.transform(range: NSMakeRange(4, 1)))
+        let rangeA = NSRange(1..<3)
+
+        XCTAssertTrue(change.affects(rangeA))
+        XCTAssertTrue(change.overlaps(rangeA))
+        XCTAssertNil(change.transform(range: rangeA))
+
+        let rangeB = NSRange(1..<5)
+
+        XCTAssertTrue(change.affects(rangeB))
+        XCTAssertTrue(change.overlaps(rangeB))
+        XCTAssertNil(change.transform(range: rangeB))
+
+        let rangeC = NSRange(4..<5)
+
+        XCTAssertTrue(change.affects(rangeC))
+        XCTAssertTrue(change.overlaps(rangeC))
+        XCTAssertNil(change.transform(range: rangeC))
     }
 
     func testMutationRemovesExactRange() {
         let change = RangeMutation(range: NSRange(5..<10), delta: -5, limit: 10)
+        let range = NSRange(5..<10)
 
-        XCTAssertEqual(change.transform(range: NSRange(5..<10)), NSRange(5..<5))
+        XCTAssertTrue(change.affects(range))
+        XCTAssertTrue(change.overlaps(range))
+        XCTAssertEqual(change.transform(range: range), NSRange(5..<5))
     }
 
     func testMutationReplaceExactRange() {
         let change = RangeMutation(range: NSRange(5..<10), delta: 0, limit: 10)
+        let range = NSRange(5..<10)
 
-        XCTAssertEqual(change.transform(range: NSRange(5..<10)), NSRange(5..<5))
+        XCTAssertTrue(change.affects(range))
+        XCTAssertTrue(change.overlaps(range))
+        XCTAssertEqual(change.transform(range: range), NSRange(5..<5))
     }
 }
