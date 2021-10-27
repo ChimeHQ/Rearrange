@@ -21,6 +21,14 @@ public extension IndexSet {
         ranges.forEach { insert(range: $0) }
     }
 
+    mutating func remove(integersIn range: NSRange) {
+        guard let range = Range<IndexSet.Element>(range) else {
+            fatalError("Range could not be computed from \(range)")
+        }
+
+        remove(integersIn: range)
+    }
+
     var nsRangeView: [NSRange] {
         return rangeView.map { NSRange($0) }
     }
