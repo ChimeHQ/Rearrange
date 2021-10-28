@@ -22,11 +22,11 @@ public extension IndexSet {
     }
 
     mutating func remove(integersIn range: NSRange) {
-        guard let range = Range<IndexSet.Element>(range) else {
+        guard let rng = Range<IndexSet.Element>(range) else {
             fatalError("Range could not be computed from \(range)")
         }
 
-        remove(integersIn: range)
+        remove(integersIn: rng)
     }
 
     var nsRangeView: [NSRange] {
