@@ -21,4 +21,16 @@ class NSRangeTests: XCTestCase {
         XCTAssertEqual(iterator.next(), 9)
         XCTAssertNil(iterator.next())
     }
+
+    func testClamped() {
+        let range = NSRange(location: 10, length: 10)
+
+        XCTAssertEqual(range.clamped(to: 30), NSRange(10..<20))
+        XCTAssertEqual(range.clamped(to: 20), NSRange(10..<20))
+        XCTAssertEqual(range.clamped(to: 19), NSRange(10..<19))
+        XCTAssertEqual(range.clamped(to: 11), NSRange(10..<11))
+        XCTAssertEqual(range.clamped(to: 10), NSRange(10..<10))
+        XCTAssertEqual(range.clamped(to: 9), NSRange(9..<9))
+        XCTAssertEqual(range.clamped(to: 0), NSRange(0..<0))
+    }
 }

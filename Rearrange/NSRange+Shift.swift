@@ -63,4 +63,17 @@ extension NSRange {
 
         return NSRange(location: location, length: newLength)
     }
+
+    /// Returns an NSRange that will not exceed a limit
+    ///
+    /// This functions ensures that the resulting range
+    /// does not exceed the supplied limit. The result
+    /// will have a location <= the limit, and may
+    /// have zero length.
+    public func clamped(to limit: Int) -> NSRange {
+        let start = Swift.min(location, limit)
+        let end = Swift.min(max, limit)
+
+        return NSRange(start..<end)
+    }
 }

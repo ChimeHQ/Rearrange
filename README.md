@@ -44,6 +44,8 @@ public func shifted(startBy delta: Int) -> NSRange?
 public func shifted(endBy delta: Int) -> NSRange?
 
 // mutating
+public func clamped(to limit: Int) -> NSRange
+
 func apply(_ change: RangeMutation) -> NSRange?
 ```
 
@@ -52,6 +54,7 @@ func apply(_ change: RangeMutation) -> NSRange?
 ```swift
 mutating func insert(range: NSRange)
 mutating func insert(ranges: [NSRange])
+mutating func remove(integersIn range: NSRange)
 var nsRangeView: [NSRange]
 func contains(integersIn range: NSRange) -> Bool
 var limitSpanningRange: NSRange?
