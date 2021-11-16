@@ -9,7 +9,8 @@
 import Foundation
 
 extension NSRange {
-    public static var zero = NSRange(location: 0, length: 0)
+    public static let zero = NSRange(location: 0, length: 0)
+    public static let notFound = NSRange(location: NSNotFound, length: 0)
 }
 
 extension NSRange {
