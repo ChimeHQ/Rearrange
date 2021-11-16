@@ -35,7 +35,8 @@ You can also use this class to tranform individual points or other `NSRange`s. T
 
 ```swift
 // convenience
-static var zero
+static var zero: NSRange
+static var notFound: NSRange
 var max: Int
 
 // shifting
