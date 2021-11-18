@@ -211,4 +211,11 @@ extension RangeMutationTests {
         XCTAssertTrue(change.overlaps(range))
         XCTAssertEqual(change.transform(range: range), NSRange(5..<5))
     }
+
+    func testMutationWithNotFound() {
+        let change = RangeMutation(range: NSRange(5..<10), delta: 0, limit: 10)
+
+        XCTAssertFalse(change.affects(.notFound))
+        XCTAssertFalse(change.overlaps(.notFound))
+    }
 }

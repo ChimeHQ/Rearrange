@@ -17,6 +17,10 @@ extension NSRange {
     /// If the location + delta would result in a negative number,
     /// this returns nil.
     public func shifted(by delta: Int) -> NSRange? {
+        if location == NSNotFound {
+            return nil
+        }
+
         let newLocation = location + delta
 
         if newLocation < 0 {
@@ -36,6 +40,10 @@ extension NSRange {
     /// If the resulting length or location would be negative,
     /// or if the delta is larger than the length this returns nil.
     public func shifted(startBy delta: Int) -> NSRange? {
+        if location == NSNotFound {
+            return nil
+        }
+
         let newLocation = location + delta
         let newLength = length - delta
 
@@ -55,6 +63,10 @@ extension NSRange {
     /// If the resulting length would be negative,
     /// this returns nil.
     public func shifted(endBy delta: Int) -> NSRange? {
+        if location == NSNotFound {
+            return nil
+        }
+        
         let newLength = length + delta
 
         if newLength < 0 {
@@ -71,6 +83,10 @@ extension NSRange {
     /// will have a location <= the limit, and may
     /// have zero length.
     public func clamped(to limit: Int) -> NSRange {
+        if location == NSNotFound {
+            return self
+        }
+
         let start = Swift.min(location, limit)
         let end = Swift.min(max, limit)
 

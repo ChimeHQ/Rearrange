@@ -10,6 +10,10 @@ import Foundation
 
 extension NSRange {
     public func apply(_ change: RangeMutation) -> NSRange? {
+        if location == NSNotFound {
+            return nil
+        }
+        
         if change.presetLimit != nil {
             precondition(change.range.max <= change.limit)
         }

@@ -44,6 +44,10 @@ public struct RangeMutation {
 
     /// Returns true if the mutating range overlaps the argument
     public func overlaps(_ r: NSRange) -> Bool {
+        if r.location == NSNotFound {
+            return false
+        }
+        
         if range.location >= r.max {
             return false
         }
@@ -58,6 +62,10 @@ public struct RangeMutation {
     /// Returns true if the mutation may alter the argument,
     /// even if applying the mutation could result in it being unchanged
     public func affects(_ r: NSRange) -> Bool {
+        if r.location == NSNotFound {
+            return false
+        }
+
         if r == .zero {
             return false
         }

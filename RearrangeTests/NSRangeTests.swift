@@ -22,6 +22,12 @@ class NSRangeTests: XCTestCase {
         XCTAssertNil(iterator.next())
     }
 
+    func testRangeInteratorWithInvalidValues() {
+        var notFoundIterator = NSRange.notFound.makeIterator()
+
+        XCTAssertNil(notFoundIterator.next())
+    }
+
     func testClamped() {
         let range = NSRange(location: 10, length: 10)
 
@@ -32,5 +38,9 @@ class NSRangeTests: XCTestCase {
         XCTAssertEqual(range.clamped(to: 10), NSRange(10..<10))
         XCTAssertEqual(range.clamped(to: 9), NSRange(9..<9))
         XCTAssertEqual(range.clamped(to: 0), NSRange(0..<0))
+    }
+
+    func testClampedWithInvalidValues() {
+        XCTAssertEqual(NSRange.notFound.clamped(to: 0), NSRange.notFound)
     }
 }

@@ -52,4 +52,10 @@ class NSRangeShiftTests: XCTestCase {
 
         XCTAssertEqual(range.shifted(startBy: 6), nil)
     }
+
+    func testShiftedNotFound() {
+        XCTAssertNil(NSRange.notFound.shifted(by: 10))
+        XCTAssertNil(NSRange.notFound.shifted(endBy: 10))
+        XCTAssertNil(NSRange.notFound.shifted(startBy: 10))
+    }
 }

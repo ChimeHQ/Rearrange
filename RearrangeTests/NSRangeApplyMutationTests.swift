@@ -129,4 +129,10 @@ class NSRangeApplyMutationTests: XCTestCase {
 
         XCTAssertEqual(range.apply(change), NSRange(6..<11))
     }
+
+    func testApplyMutationToNotFound() {
+        let change = RangeMutation(range: NSMakeRange(5, 0), delta: 1, limit: 11)
+
+        XCTAssertNil(NSRange.notFound.apply(change))
+    }
 }
