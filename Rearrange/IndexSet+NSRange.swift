@@ -33,8 +33,22 @@ public extension IndexSet {
         return rangeView.map { NSRange($0) }
     }
 
+    /// Returns true if entire range is contained
     func contains(integersIn range: NSRange) -> Bool {
-        return contains(integersIn: Range<IndexSet.Element>(range)!)
+        guard let elementRange = Range<IndexSet.Element>(range) else {
+            return false
+        }
+
+        return contains(integersIn: elementRange)
+    }
+
+    /// Returns true if at least one location in range is contained
+    func intersects(integersIn range : NSRange) -> Bool {
+        guard let elementRange = Range<IndexSet.Element>(range) else {
+            return false
+        }
+
+        return intersects(integersIn: elementRange)
     }
 
     /// Returns a range starting at the minimum of the test and extending to the maximum

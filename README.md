@@ -58,6 +58,7 @@ mutating func insert(ranges: [NSRange])
 mutating func remove(integersIn range: NSRange)
 var nsRangeView: [NSRange]
 func contains(integersIn range: NSRange) -> Bool
+func intersects(integersIn range: NSRange) -> Bool
 var limitSpanningRange: NSRange?
 ```
 

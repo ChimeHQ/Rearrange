@@ -30,4 +30,21 @@ class IndexSetExtenstionTests: XCTestCase {
 
         XCTAssertEqual(set, IndexSet(integersIn: NSRange(location: 0, length: 5)))
     }
+
+    func testIntersets() {
+        var set = IndexSet()
+
+        XCTAssertFalse(set.intersects(integersIn: .zero))
+        XCTAssertFalse(set.intersects(integersIn: .notFound))
+
+        set.insert(range: NSRange(location: 1, length: 4))
+
+        XCTAssertTrue(set.intersects(integersIn: NSRange(1..<2)))
+        XCTAssertTrue(set.intersects(integersIn: NSRange(0..<5)))
+        XCTAssertTrue(set.intersects(integersIn: NSRange(4..<5)))
+
+        XCTAssertFalse(set.intersects(integersIn: NSRange(0..<1)))
+        XCTAssertFalse(set.intersects(integersIn: NSRange(5..<5)))
+        XCTAssertFalse(set.intersects(integersIn: NSRange(5..<6)))
+    }
 }
