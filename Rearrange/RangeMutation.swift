@@ -110,8 +110,8 @@ extension RangeMutation {
     }
 }
 
-extension RangeMutation {
-    public func transform(range r: NSRange) -> NSRange? {
+public extension RangeMutation {
+     func transform(range r: NSRange) -> NSRange? {
         // This is a gross special-case that I'd prefer to avoid. But,
         // I'm strugging to come up with logic that makes sense for this
         // otherwise.
@@ -138,5 +138,17 @@ extension RangeMutation {
         }
 
         return NSMakeRange(start, end - start)
+    }
+
+    func transform(set: IndexSet) -> IndexSet {
+        let ranges = set.nsRangeView
+
+        let transformedRanges = ranges.compactMap({ transform(range: $0) })
+
+        var newSet = IndexSet()
+
+        newSet.insert(ranges: transformedRanges)
+
+        return newSet
     }
 }

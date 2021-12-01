@@ -88,6 +88,7 @@ extension RangeMutationTests {
         XCTAssertFalse(change.affects(range))
         XCTAssertFalse(change.overlaps(range))
         XCTAssertEqual(change.transform(range: range), range)
+        XCTAssertEqual(change.transform(set: IndexSet(integersIn: range)), IndexSet(integersIn: range))
     }
 
     func testMutationRemovalAtEndingOfRange() {
@@ -97,6 +98,7 @@ extension RangeMutationTests {
         XCTAssertFalse(change.affects(range))
         XCTAssertFalse(change.overlaps(range))
         XCTAssertEqual(change.transform(range: range), range)
+        XCTAssertEqual(change.transform(set: IndexSet(integersIn: range)), IndexSet(integersIn: range))
     }
 
     func testMutationRemovalOfEndingOfRange() {
@@ -201,6 +203,7 @@ extension RangeMutationTests {
         XCTAssertTrue(change.affects(range))
         XCTAssertTrue(change.overlaps(range))
         XCTAssertEqual(change.transform(range: range), NSRange(5..<5))
+        XCTAssertEqual(change.transform(set: IndexSet(integersIn: range)), IndexSet(integersIn: NSRange(5..<5)))
     }
 
     func testMutationReplaceExactRange() {
@@ -210,6 +213,7 @@ extension RangeMutationTests {
         XCTAssertTrue(change.affects(range))
         XCTAssertTrue(change.overlaps(range))
         XCTAssertEqual(change.transform(range: range), NSRange(5..<5))
+        XCTAssertEqual(change.transform(set: IndexSet(integersIn: range)), IndexSet(integersIn: NSRange(5..<5)))
     }
 
     func testMutationWithNotFound() {
