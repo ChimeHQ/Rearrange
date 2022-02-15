@@ -45,7 +45,7 @@ public extension NSTextRange {
             return nil
         }
 
-        guard let end = provider.location?(docLocation, offsetBy: range.max) else {
+        guard let end = provider.location?(start, offsetBy: range.length) else {
             return nil
         }
 
