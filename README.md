@@ -3,7 +3,7 @@
 
 # Rearrange
 
-Rearrange is a collection of utilities for making it easier to work with `NSRange`. It's particularly handy when used with the Cocoa text system.
+Rearrange is a collection of utilities for making it easier to work with `NSRange` and `NSTextRange`. It's particularly handy when used with the Cocoa text system.
 
 ## Integration
 
@@ -11,7 +11,7 @@ Swift Package Manager:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/ChimeHQ/Rearrange.git")
+    .package(url: "https://github.com/ChimeHQ/Rearrange")
 ]
 ```
 
@@ -48,6 +48,17 @@ public func shifted(endBy delta: Int) -> NSRange?
 public func clamped(to limit: Int) -> NSRange
 
 func apply(_ change: RangeMutation) -> NSRange?
+
+// creating
+init(_ textRange: NSTextRange, provider: NSTextElementProvider)
+```
+
+**NSTextRange**
+
+```swift
+// creating
+convenience init?(_ range: NSRange, provider: NSTextElementProvider)
+convenience init?(_ offset: Int, provider: NSTextElementProvider)
 ```
 
 **IndexSet**
