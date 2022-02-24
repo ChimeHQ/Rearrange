@@ -1,4 +1,6 @@
-[![Github CI](https://github.com/ChimeHQ/Rearrange/workflows/CI/badge.svg)](https://github.com/ChimeHQ/Rearrange/actions)
+[![Build Status][build status badge]][build status]
+[![License][license badge]][license]
+[![Platforms][platforms badge]][platforms]
 
 # Rearrange
 
@@ -71,3 +73,10 @@ var limitSpanningRange: NSRange?
 We'd love to hear from you! Get in touch via [twitter](https://twitter.com/chimehq), an issue, or a pull request.
 
 Please note that this project is released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md). By participating in this project you agree to abide by its terms.
+
+[build status]: https://github.com/ChimeHQ/Rearrange/actions
+[build status badge]: https://github.com/ChimeHQ/Rearrange/workflows/CI/badge.svg
+[license]: https://opensource.org/licenses/BSD-3-Clause
+[license badge]: https://img.shields.io/github/license/ChimeHQ/Rearrange
+[platforms]: https://swiftpackageindex.com/ChimeHQ/Rearrange
+[platforms badge]: https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2FChimeHQ%2FRearrange%2Fbadge%3Ftype%3Dplatforms
