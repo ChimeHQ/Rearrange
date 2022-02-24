@@ -14,9 +14,13 @@ jobs:
     runs-on: macOS-latest
     strategy:
       matrix:
-        destination: ["platform=macOS", "platform=iOS Simulator,name=iPhone 11", "platform=tvOS Simulator,name=Apple TV"]
+        destination:
+          - "platform=macOS"
+          - "platform=iOS Simulator,name=iPhone 11"
+          - "platform=tvOS Simulator,name=Apple TV"
+          - "platform=watchOS Simulator,name=Apple Watch Series 6 - 40mm"
     
     steps:
       - uses: actions/checkout@v2
       - name: Test platform ${{ matrix.destination }}
-        run: set -o pipefail && xcodebuild -scheme Rearrange VALID_ARCHS="arm64,x86_64" -destination "${{ matrix.destination }}" test | xcpretty
+        run: set -o pipefail && xcodebuild -scheme Rearrange VALID_ARCHS="arm64 x86_64" -destination "${{ matrix.destination }}" test | xcpretty
