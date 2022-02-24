@@ -6,8 +6,7 @@ import AppKit
 import UIKit
 #endif
 
-// Swift 5.5 is a proxy for iOS 15/macOS 12.0 SDK availability
-#if (os(macOS) || os(iOS) || os(tvOS)) && swift(>=5.5)
+#if (os(macOS) || os(iOS) || os(tvOS)) && compiler(>=5.5)
 
 @available(iOS 15.0, macOS 12.0, tvOS 15.0, *)
 public extension NSTextLocation {
@@ -38,6 +37,7 @@ public extension NSRange {
 }
 
 @available(iOS 15.0, macOS 12.0, tvOS 15.0, *)
+@available(watchOS, unavailable)
 public extension NSTextRange {
     convenience init?(_ range: NSRange, provider: NSTextElementProvider) {
         let docLocation = provider.documentRange.location
