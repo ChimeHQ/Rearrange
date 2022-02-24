@@ -9,7 +9,7 @@ let package = Package(
     ],
     dependencies: [],
     targets: [
-        .target(name: "Rearrange", dependencies: [], path: "Rearrange/"),
-        .testTarget(name: "RearrangeTests", dependencies: ["Rearrange"], path: "RearrangeTests/"),
+        .target(name: "Rearrange", dependencies: []),
+        .testTarget(name: "RearrangeTests", dependencies: ["Rearrange"]),
     ]
 )

@@ -1,5 +1,4 @@
 [![Github CI](https://github.com/ChimeHQ/Rearrange/workflows/CI/badge.svg)](https://github.com/ChimeHQ/Rearrange/actions)
-[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg)](https://github.com/Carthage/Carthage)
 
 # Rearrange
 
@@ -13,12 +12,6 @@ Swift Package Manager:
 dependencies: [
     .package(url: "https://github.com/ChimeHQ/Rearrange")
 ]
-```
-
-Carthage:
-
-```
-github "ChimeHQ/Rearrange"
 ```
 
 ## Types
