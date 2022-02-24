@@ -6,7 +6,8 @@ import AppKit
 import UIKit
 #endif
 
-#if os(macOS) || os(iOS) || os(tvOS)
+// Swift 5.5 is a proxy for iOS 15/macOS 12.0 SDK availability
+#if (os(macOS) || os(iOS) || os(tvOS)) && swift(>=5.5)
 
 @available(iOS 15.0, macOS 12.0, tvOS 15.0, *)
 public extension NSTextLocation {
