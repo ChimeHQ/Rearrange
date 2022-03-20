@@ -78,6 +78,9 @@ public struct RangeMutation {
     }
 }
 
+extension RangeMutation: Hashable {
+}
+
 extension RangeMutation {
     public func transform(location: Int) -> Int? {
         if let l = presetLimit {
