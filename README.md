@@ -46,6 +46,7 @@ func apply(_ change: RangeMutation) -> NSRange?
 
 // creating
 init(_ textRange: NSTextRange, provider: NSTextElementProvider)
+init?(_ textRange: UITextRange, textView: UITextView)
 ```
 
 **NSTextRange**
@@ -54,6 +55,13 @@ init(_ textRange: NSTextRange, provider: NSTextElementProvider)
 // creating
 convenience init?(_ range: NSRange, provider: NSTextElementProvider)
 convenience init?(_ offset: Int, provider: NSTextElementProvider)
+```
+
+**UITextRange**
+
+```swift
+// creating
+convenience init?(_ range: NSRange, provider: NSTextElementProvider)
 ```
 
 **IndexSet**
