@@ -47,6 +47,9 @@ func apply(_ change: RangeMutation) -> NSRange?
 // creating
 init(_ textRange: NSTextRange, provider: NSTextElementProvider)
 init?(_ textRange: UITextRange, textView: UITextView)
+
+// working with Swift String
+func range(in string: String) -> Range<String.Index>?
 ```
 
 **NSTextRange**
@@ -74,6 +77,13 @@ var nsRangeView: [NSRange]
 func contains(integersIn range: NSRange) -> Bool
 func intersects(integersIn range: NSRange) -> Bool
 var limitSpanningRange: NSRange?
+```
+
+**String**
+
+```Swift
+subscript(range: Range<Int>) -> Substring?
+subscript(range: NSRange) -> Substring?
 ```
 
 ### Suggestions or Feedback
