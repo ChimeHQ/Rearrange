@@ -13,9 +13,10 @@ extension NSRange {
         if location == NSNotFound {
             return nil
         }
-        
-        if change.presetLimit != nil {
-            precondition(change.range.max <= change.limit)
+
+        if change.presetLimit != nil && change.range.max > change.limit {
+            assertionFailure()
+            return nil
         }
 
         // a trivial case
@@ -31,11 +32,14 @@ extension NSRange {
         // in front of us, shift
         if change.range.max <= location {
             guard let new = shifted(by: change.delta) else {
-                fatalError("change makes range invalid")
+                assertionFailure("change makes range invalid")
+                return nil
             }
 
-            if change.presetLimit != nil {
-                precondition(new.max <= change.postApplyLimit)
+            if change.presetLimit != nil && new.max > change.postApplyLimit {
+                assertionFailure()
+
+                return nil
             }
 
             return new

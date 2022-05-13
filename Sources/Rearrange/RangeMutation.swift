@@ -20,11 +20,11 @@ public struct RangeMutation {
         self.presetLimit = limit
 
         if let l = limit {
-            precondition(l >= 0)
-            precondition(range.max <= l, "range must not exceed limit")
+            assert(l >= 0)
+            assert(range.max <= l, "range must not exceed limit")
         }
 
-        precondition(range.length + delta >= 0, "delta must not cause range length to go negative")
+        assert(range.length + delta >= 0, "delta must not cause range length to go negative")
     }
 
     public init(stringContents string: String) {
@@ -83,8 +83,9 @@ extension RangeMutation: Hashable {
 
 extension RangeMutation {
     public func transform(location: Int) -> Int? {
-        if let l = presetLimit {
-            precondition(location <= l)
+        if let l = presetLimit, location > l {
+            assertionFailure()
+            return nil
         }
 
         if range.location > location {
@@ -103,10 +104,16 @@ extension RangeMutation {
 
         let result = location + delta
 
-        precondition(result >= 0)
+        if result < 0 {
+            assertionFailure()
 
-        if presetLimit != nil {
-            precondition(result <= postApplyLimit)
+            return nil
+        }
+
+        if presetLimit != nil && result > postApplyLimit {
+            assertionFailure()
+
+            return nil
         }
 
         return result
