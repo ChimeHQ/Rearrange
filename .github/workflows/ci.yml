@@ -16,9 +16,9 @@ jobs:
       matrix:
         destination:
           - "platform=macOS"
-          - "platform=iOS Simulator,name=iPhone 11"
+          - "platform=iOS Simulator,name=iPhone 12"
           - "platform=tvOS Simulator,name=Apple TV"
-          - "platform=watchOS Simulator,name=Apple Watch Series 6 - 40mm"
+          - "platform=watchOS Simulator,name=Apple Watch Series 6 (40mm)"
     
     steps:
       - uses: actions/checkout@v2
