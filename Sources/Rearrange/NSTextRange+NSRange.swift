@@ -1,10 +1,10 @@
-import Foundation
-
 #if canImport(AppKit)
 import AppKit
 #elseif canImport(UIKit)
 import UIKit
 #endif
+
+#if canImport(AppKit) || canImport(UIKit)
 
 @available(iOS 15.0, macOS 12.0, tvOS 15.0, *)
 public extension NSTextLocation {
@@ -61,3 +61,5 @@ public extension NSTextRange {
         self.init(location: start)
     }
 }
+
+#endif
