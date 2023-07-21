@@ -4,7 +4,7 @@ import AppKit
 import UIKit
 #endif
 
-#if canImport(AppKit) || canImport(UIKit)
+#if os(iOS) || os(tvOS) || os(macOS)
 
 @available(iOS 15.0, macOS 12.0, tvOS 15.0, *)
 public extension NSTextLocation {
