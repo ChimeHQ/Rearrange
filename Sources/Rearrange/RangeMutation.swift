@@ -9,7 +9,7 @@
 import Foundation
 
 /// RangeMutation encapsulates a single change in a larger NSRange, like a text representation.
-public struct RangeMutation {
+public struct RangeMutation: Hashable, Sendable {
     public let range: NSRange
     public let delta: Int
     let presetLimit: Int?
@@ -76,9 +76,6 @@ public struct RangeMutation {
 
         return range.max < r.max
     }
-}
-
-extension RangeMutation: Hashable {
 }
 
 extension RangeMutation {
