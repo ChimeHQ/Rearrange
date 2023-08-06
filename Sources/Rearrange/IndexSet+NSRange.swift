@@ -51,7 +51,9 @@ public extension IndexSet {
         return intersects(integersIn: elementRange)
     }
 
-    /// Returns a range encompassing the minimum and maximum value of the set (including the maximum, because `IndexSet` describes indices that are part of the range, not past-end positions).
+    /// Returns a range encompassing the minimum and maximum value of the set.
+    ///
+    /// The resulting range includes both minimum and maximum boundaries of `self` because these describe indices that should be part of the range, not past-end positions.
     ///
     /// This value will be nil if either `min()` or `max()` are `nil`.
     var limitSpanningRange: NSRange? {
