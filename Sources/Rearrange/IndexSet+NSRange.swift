@@ -51,9 +51,9 @@ public extension IndexSet {
         return intersects(integersIn: elementRange)
     }
 
-    /// Returns a range starting at the minimum of the test and extending to the maximum
+    /// Returns a range encompassing the minimum and maximum value of the set (including the maximum, because `IndexSet` describes indices that are part of the range, not past-end positions).
     ///
-    /// This value will be nil if either min() or max() are nil
+    /// This value will be nil if either `min()` or `max()` are `nil`.
     var limitSpanningRange: NSRange? {
         guard let start = self.min(), let end = self.max() else {
             return nil

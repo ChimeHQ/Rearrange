@@ -17,6 +17,12 @@ class IndexSetExtenstionTests: XCTestCase {
         XCTAssertEqual(set.limitSpanningRange, NSRange(location: 0, length: 5))
     }
 
+    func testLimitSpanningRange() {
+        let set = IndexSet([1, 7, 3])
+
+        XCTAssertEqual(set.limitSpanningRange, NSRange(1...7))
+    }
+
     func testLimitSpanningRangeWithEmptySet() {
         let set = IndexSet()
 
