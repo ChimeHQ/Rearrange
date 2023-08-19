@@ -30,18 +30,17 @@ You can also use this class to tranform individual points or other `NSRange`s. T
 
 ```swift
 // convenience
-static var zero: NSRange
-static var notFound: NSRange
+static let zero: NSRange
+static let notFound: NSRange
 var max: Int
 
 // shifting
-public func shifted(by delta: Int) -> NSRange?
-public func shifted(startBy delta: Int) -> NSRange?
-public func shifted(endBy delta: Int) -> NSRange?
+func shifted(by delta: Int) -> NSRange?
+func shifted(endBy delta: Int) -> NSRange?
+func shifted(startBy delta: Int) -> NSRange?
 
 // mutating
-public func clamped(to limit: Int) -> NSRange
-
+func clamped(to limit: Int) -> NSRange
 func apply(_ change: RangeMutation) -> NSRange?
 
 // creating
