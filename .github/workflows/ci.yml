@@ -26,6 +26,8 @@ jobs:
           - "platform=watchOS Simulator,name=Apple Watch Series 6 (40mm)"
     
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
       - name: Install XCBeautify
         run: brew install xcbeautify
       - name: Test platform ${{ matrix.destination }}
