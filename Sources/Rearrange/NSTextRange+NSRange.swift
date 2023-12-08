@@ -7,13 +7,6 @@ import UIKit
 #if os(iOS) || os(tvOS) || os(macOS)
 
 @available(iOS 15.0, macOS 12.0, tvOS 15.0, *)
-public extension NSTextLocation {
-    static func < (lhs: Self, rhs: Self) -> Bool {
-        return lhs.compare(rhs) == .orderedAscending
-    }
-}
-
-@available(iOS 15.0, macOS 12.0, tvOS 15.0, *)
 public extension NSRange {
     init(_ textRange: NSTextRange, provider: NSTextElementProvider) {
         let docLocation = provider.documentRange.location
