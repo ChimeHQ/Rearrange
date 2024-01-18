@@ -1,17 +1,17 @@
 import Foundation
 
 extension IndexSet {
-	public func apply(mutation: RangeMutation) -> IndexSet {
+	public func apply(_ mutation: RangeMutation) -> IndexSet {
 		let ranges = nsRangeView.compactMap { $0.apply(mutation) }
 
 		return IndexSet(ranges: ranges)
 	}
 
-	public mutating func applying(mutation: RangeMutation) {
-		self = self.apply(mutation: mutation)
+	public mutating func applying(_ mutation: RangeMutation) {
+		self = self.apply(mutation)
 	}
 
-	public func apply(mutations: [RangeMutation]) -> IndexSet {
+	public func apply(_ mutations: [RangeMutation]) -> IndexSet {
 		var ranges = nsRangeView
 
 		for mutation in mutations {
@@ -21,7 +21,7 @@ extension IndexSet {
 		return IndexSet(ranges: ranges)
 	}
 
-	public mutating func applying(mutations: [RangeMutation]) {
-		self = self.apply(mutations: mutations)
+	public mutating func applying(_ mutations: [RangeMutation]) {
+		self = self.apply(mutations)
 	}
 }
