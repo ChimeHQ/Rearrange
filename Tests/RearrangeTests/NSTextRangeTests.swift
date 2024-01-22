@@ -1,11 +1,11 @@
 import XCTest
-#if os(macOS)
+#if canImport(AppKit)
 import AppKit
-#elseif os(iOS) || os(tvOS)
+#elseif canImport(UIKit)
 import UIKit
 #endif
 
-#if os(macOS) || os(iOS) || os(tvOS)
+#if os(macOS) || os(iOS) || os(tvOS) || os(visionOS)
 
 class NSTextRangeTests: XCTestCase {
     func testFullDocumentRange() throws {
