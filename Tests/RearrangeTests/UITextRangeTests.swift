@@ -1,6 +1,6 @@
 import XCTest
 import Rearrange
-#if canImport(UIKit)
+#if os(iOS) || os(tvOS) || os(visionOS)
 import UIKit
 
 final class UITextRangeTests: XCTestCase {

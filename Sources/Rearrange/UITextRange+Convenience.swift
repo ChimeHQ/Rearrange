@@ -1,4 +1,4 @@
-#if canImport(UIKit)
+#if os(iOS) || os(tvOS) || os(visionOS)
 import UIKit
 
 public extension NSRange {

@@ -28,6 +28,7 @@ jobs:
           - "platform=tvOS Simulator,name=Apple TV"
           - "platform=visionOS Simulator,name=Apple Vision Pro"
           - "platform=watchOS Simulator,name=Apple Watch Series 6 (40mm)"
+          - "platform=macOS,variant=Mac Catalyst"
     
     steps:
       - name: Checkout

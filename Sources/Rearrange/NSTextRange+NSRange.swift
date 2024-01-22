@@ -1,10 +1,10 @@
-#if canImport(AppKit)
+#if os(macOS) && !targetEnvironment(macCatalyst)
 import AppKit
-#elseif canImport(UIKit)
+#elseif os(iOS) || os(tvOS) || os(visionOS)
 import UIKit
 #endif
 
-#if os(iOS) || os(tvOS) || os(macOS) || os(visionOS)
+#if os(macOS) || os(iOS) || os(tvOS) || os(visionOS)
 
 @available(iOS 15.0, macOS 12.0, tvOS 15.0, *)
 public extension NSRange {
