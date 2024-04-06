@@ -92,16 +92,6 @@ subscript(range: Range<Int>) -> Substring?
 subscript(range: NSRange) -> Substring?
 ```
 
-**NSTextLocation**
-
-```swift
-static func < (lhs: Self, rhs: Self) -> Bool
-static func == (lhs: Self, rhs: Self) -> Bool
-static func <= (lhs: Self, rhs: Self) -> Bool
-static func > (lhs: Self, rhs: Self) -> Bool
-static func >= (lhs: Self, rhs: Self) -> Bool
-```
-
 ## Contributing and Collaboration
 
 I would love to hear from you! Issues, Discussions, or pull requests work great. A [Discord server][discord] is also available for live help, but I have a strong bias towards answering in the form of documentation.
