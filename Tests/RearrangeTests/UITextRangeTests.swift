@@ -4,6 +4,7 @@ import Rearrange
 import UIKit
 
 final class UITextRangeTests: XCTestCase {
+	@MainActor
     func testTextRangeWithRange() throws {
         let view = UITextView()
 
@@ -15,6 +16,7 @@ final class UITextRangeTests: XCTestCase {
         XCTAssertEqual(textRange, fullRange)
     }
 
+	@MainActor
     func testRangeWithTextRange() throws {
         let view = UITextView()
 

@@ -1,8 +1,9 @@
 #if os(iOS) || os(tvOS) || os(visionOS)
 import UIKit
 
-public extension NSRange {
-    init?(_ textRange: UITextRange, textView: UITextView) {
+extension NSRange {
+	@MainActor
+	public init?(_ textRange: UITextRange, textView: UITextView) {
         let location = textView.offset(from: textView.beginningOfDocument, to: textRange.start)
         let length = textView.offset(from: textRange.start, to: textRange.end)
 
@@ -14,8 +15,9 @@ public extension NSRange {
     }
 }
 
-public extension UITextView {
-    func textRange(with range: NSRange) -> UITextRange? {
+extension UITextView {
+	@MainActor
+	public func textRange(with range: NSRange) -> UITextRange? {
         guard let start = position(from: beginningOfDocument, offset: range.location) else {
             return nil
         }
