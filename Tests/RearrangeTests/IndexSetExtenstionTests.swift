@@ -9,6 +9,16 @@
 import XCTest
 
 final class IndexSetExtenstionTests: XCTestCase {
+	func testInitialization() {
+		let setA = IndexSet(integersIn: NSRange(0..<5))
+		let setB = IndexSet(NSRange(0..<5))
+		let setC = IndexSet(arrayLiteral: 0, 1, 2, 3, 4)
+
+		XCTAssertEqual(setA, setB)
+		XCTAssertEqual(setA, setC)
+		XCTAssertEqual(setB, setC)
+	}
+
     func testSpanningRange() {
         var set = IndexSet()
 

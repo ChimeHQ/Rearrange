@@ -13,6 +13,10 @@ public extension IndexSet {
         self.init(integersIn: Range<IndexSet.Element>(range)!)
     }
 
+	init(_ range: NSRange) {
+		self.init(integersIn: range)
+	}
+
 	init(ranges: [NSRange]) {
 		self.init()
 
