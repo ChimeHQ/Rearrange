@@ -37,6 +37,7 @@ jobs:
 
   linux_test:
     name: Test Linux
+    timeout-minutes: 10
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
