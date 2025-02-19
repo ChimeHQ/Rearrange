@@ -53,6 +53,12 @@ extension TextRangeCalculating where TextRange.Bound == Int {
 	}
 }
 
+extension TextRangeCalculating where TextRange == NSRange {
+	public func textRange(from start: Position, to end: Position) -> TextRange? {
+		NSRange(start..<end)
+	}
+}
+
 public struct CalculatedPosition<Calculator: TextRangeCalculating> {
 	public typealias Position = Calculator.TextRange.Bound
 
