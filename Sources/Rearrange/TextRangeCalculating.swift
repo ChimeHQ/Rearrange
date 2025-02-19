@@ -28,6 +28,10 @@ extension TextRangeCalculating {
 }
 
 extension TextRangeCalculating where TextRange.Bound == Int {
+	public var beginningOfDocument: Position {
+		0
+	}
+	
 	public func position(from position: Position, offset: Int) -> Position? {
 		position + offset
 	}
