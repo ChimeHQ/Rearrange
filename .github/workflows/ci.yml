@@ -19,7 +19,7 @@ jobs:
     timeout-minutes: 30
     runs-on: macOS-15
     env:
-      DEVELOPER_DIR: /Applications/Xcode_16.1.app
+      DEVELOPER_DIR: /Applications/Xcode_16.3.app
     strategy:
       matrix:
         destination:
@@ -37,10 +37,19 @@ jobs:
 
   linux_test:
     name: Test Linux
-    timeout-minutes: 10
     runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      matrix:
+        swift-version:
+          - 6.0.3
+          - 6.1
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Swiftly
+        uses: vapor/swiftly-action@v0.2.0
+        with:
+          toolchain: ${{ matrix.swift-version }}
       - name: Test
         run: swift test
