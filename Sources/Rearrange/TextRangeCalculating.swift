@@ -25,6 +25,14 @@ extension TextRangeCalculating {
 
 		return textRange(from: start, to: end)
 	}
+
+	public func validRange(_ range: TextRange) -> Bool {
+		if compare(range.lowerBound, to: beginningOfDocument) == .orderedAscending {
+			return false
+		}
+
+		return compare(range.upperBound, to: endOfDocument) != .orderedDescending
+	}
 }
 
 extension TextRangeCalculating where TextRange.Bound == Int {
@@ -112,7 +120,7 @@ public struct CalculatedRange<Calculator: TextRangeCalculating> : Bounded {
 	}
 }
 
-extension CalculatedRange : Sendable where Calculator : Sendable, Position : Sendable {}
+extension CalculatedRange: Sendable where Calculator: Sendable, Calculator.TextRange: Sendable, Position: Sendable {}
 extension CalculatedRange : Equatable where Calculator : AnyObject, Calculator.TextRange : Equatable {
 	public static func == (lhs: CalculatedRange<Calculator>, rhs: CalculatedRange<Calculator>) -> Bool {
 		precondition(lhs.calculator === rhs.calculator)
