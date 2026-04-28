@@ -27,3 +27,12 @@ extension NSRange: Sequence {
         return (location..<NSMaxRange(self)).makeIterator()
     }
 }
+
+extension NSRange {
+	public init<Calculator: TextRangeCalculating>(_ textRange: Calculator.TextRange, with calculator: Calculator) {
+		let location = calculator.offset(from: calculator.beginningOfDocument, to: textRange.lowerBound)
+		let length = calculator.offset(from: textRange.lowerBound, to: textRange.upperBound)
+
+		self.init(location: location, length: length)
+	}
+}
