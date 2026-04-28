@@ -35,7 +35,7 @@ jobs:
           - "platform=visionOS Simulator,name=Apple Vision Pro"
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
       - name: Test platform ${{ matrix.destination }}
         run: set -o pipefail && xcodebuild -scheme Rearrange -destination "${{ matrix.destination }}" test | xcbeautify
 
@@ -53,7 +53,7 @@ jobs:
           - "latest"
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
       - run: swift --version
       - name: Test
         run: swift test
